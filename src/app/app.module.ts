@@ -9,6 +9,7 @@ import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 import { IssueFormComponent } from './issue-form/issue-form.component';
 import { FormsModule } from '@angular/forms';
 import { RoutingModule } from './routing/routing.module';
+import { GlinkComponent } from './glink/glink.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RoutingModule } from './routing/routing.module';
     MyComponentComponent,
     IssueListComponent,
     IssueDetailComponent,
-    IssueFormComponent
+    IssueFormComponent,
+    GlinkComponent
   ],
   imports: [
     BrowserModule,

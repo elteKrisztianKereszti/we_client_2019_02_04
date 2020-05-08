@@ -4,6 +4,7 @@
 
   <div class="row">
     <div class="col">
+      <status-filter [status]="selectedStatus"></status-filter>
       <div class="list-group">
          <a *ngFor="let issue of filteredIssues" class="list-group-item list-group-item-action"
           [class.list-group-item-danger]="issue.status === 'NEW'"

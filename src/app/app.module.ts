@@ -7,9 +7,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 import { IssueFormComponent } from './issue-form/issue-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RoutingModule } from './routing/routing.module';
 import { GlinkComponent } from './glink/glink.component';
+import { StatusFilterComponent } from './status-filter/status-filter.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,15 @@ import { GlinkComponent } from './glink/glink.component';
     IssueListComponent,
     IssueDetailComponent,
     IssueFormComponent,
-    GlinkComponent
+    GlinkComponent,
+    StatusFilterComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
-    RoutingModule
+    RoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

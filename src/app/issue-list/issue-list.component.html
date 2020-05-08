@@ -5,48 +5,21 @@
   <div class="row">
     <div class="col">
       <div class="list-group">
-        <a class="list-group-item list-group-item-action list-group-item-danger">
+         <a *ngFor="let issue of issues" class="list-group-item list-group-item-action"
+          [class.list-group-item-danger]="issue.status === 'NEW'"
+          [class.list-group-item-warning]="issue.status === 'DOING'"
+          [class.list-group-item-success]="issue.status === 'DONE'">
           <div class="d-flex w-100 justify-content-between align-items-center">
-            <h5 class="mb-1">Missing mouse</h5>
-            <span class="badge badge-danger">NEW</span>
+            <h5 class="mb-1">{{ issue.title }}</h5>
+            <span class="badge" [class.badge-danger]="issue.status === 'NEW'"
+              [class.badge-warning]="issue.status === 'DOING'"
+              [class.badge-success]="issue.status === 'DONE'">{{ issue.status }}</span>
           </div>
           <p class="mb-1">
-            Desc1
+            {{ issue.description }}
           </p>
           <small>
-            <i class="fas fa-map-marker-alt"></i> PC1
-            <i class="fas fa-calendar-alt"></i> 2019.01.01.
-            <i class="fas fa-comment"></i>
-            <span class="badge badge-light badge-pill">3</span>
-          </small>
-        </a>
-        
-        <a class="list-group-item list-group-item-action list-group-item-danger">
-          <div class="d-flex w-100 justify-content-between align-items-center">
-            <h5 class="mb-1">Miki mouse</h5>
-            <span class="badge badge-danger">NEW</span>
-          </div>
-          <p class="mb-1">
-            Desc2
-          </p>
-          <small>
-            <i class="fas fa-map-marker-alt"></i> PC2
-            <i class="fas fa-calendar-alt"></i> 2019.01.01.
-            <i class="fas fa-comment"></i>
-            <span class="badge badge-light badge-pill">3</span>
-          </small>
-        </a>
-        
-        <a class="list-group-item list-group-item-action list-group-item-success">
-          <div class="d-flex w-100 justify-content-between align-items-center">
-            <h5 class="mb-1">No mouse because of Birdman!</h5>
-            <span class="badge badge-success">DONE</span>
-          </div>
-          <p class="mb-1">
-            Desc3
-          </p>
-          <small>
-            <i class="fas fa-map-marker-alt"></i> PC42
+            <i class="fas fa-map-marker-alt"></i> {{ issue.place }}
             <i class="fas fa-calendar-alt"></i> 2019.01.01.
             <i class="fas fa-comment"></i>
             <span class="badge badge-light badge-pill">3</span>

@@ -1,20 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MyComponentComponent } from './my-component/my-component.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // <-- this
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { IssueListComponent } from './issue-list/issue-list.component';
+import { IssueDetailComponent } from './issue-detail/issue-detail.component';
+import { IssueFormComponent } from './issue-form/issue-form.component';
+import { FormsModule } from '@angular/forms';
+import { RoutingModule } from './routing/routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyComponentComponent
+    MyComponentComponent,
+    IssueListComponent,
+    IssueDetailComponent,
+    IssueFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

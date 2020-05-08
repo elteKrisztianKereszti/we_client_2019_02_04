@@ -8,7 +8,7 @@ import { Issue } from '../issue';
 })
 export class IssueListComponent implements OnInit {
 
-  public issues: Issue[] = [
+  private issues: Issue[] = [
     {
       id: 1,
       place: 'PC42',
@@ -38,10 +38,20 @@ export class IssueListComponent implements OnInit {
       status: 'DONE'
     },
   ];
+  public filteredIssues: Issue[];
+  public selectedStatus: string;
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.selectedStatus = 'NEW';
+    this.filter();
+  }
+
+  public filter(): void {
+    this.filteredIssues = this.selectedStatus === ''
+    ? this.issues
+    : this.issues.filter(issue => issue.status === this.selectedStatus);
   }
 
 }

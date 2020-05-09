@@ -34,6 +34,23 @@ export class IssueListComponent implements OnInit {
     this.selectedIssue = issue;
   }
 
+
+  public onFormSubmit(formIssue: Issue): void {
+    if (this.selectedIssue.id > 0) {
+      const issue: Issue = Object.assign(this.selectedIssue, formIssue);
+      this.issueService.updateIssue(formIssue);
+    }
+    else {
+      this.issueService.createIssue(formIssue);
+    }
+    this.selectedIssue = null;
+    this.filter();
+  }
+
+  public onNewClick(): void {
+    this.selectedIssue = new Issue();
+  }
+
   private filter(): void {
     this.filteredIssues = this.selectedStatus === ''
       ? this.issues

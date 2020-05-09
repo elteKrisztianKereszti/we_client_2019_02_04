@@ -2,7 +2,7 @@
 <div class="container">
   <h2 class="display-2 my-3">{{ issue.id > 0 ? 'Edit' : 'New' }} issue</h2>
 
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
       <label for="title">Title</label>

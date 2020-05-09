@@ -4,16 +4,24 @@
   <dl class="row">
     <dt class="col-sm-3">Status</dt>
     <dd class="col-sm-9">
-      <span class="badge badge-warning">DOING</span>
+      <span class="badge"
+        [class.badge-danger]="issue.status === 'NEW'"
+        [class.badge-warning]="issue.status === 'DOING'"
+        [class.badge-success]="issue.status === 'DONE'"
+      >{{ issue.status }}</span>
     </dd>
 
     <dt class="col-sm-3">Title</dt>
-    <dd class="col-sm-9">Detail title</dd>
+    <dd class="col-sm-9">{{ issue.title }}</dd>
 
     <dt class="col-sm-3">Place</dt>
-    <dd class="col-sm-9">Detail place</dd>
+    <dd class="col-sm-9">{{ issue.place }}</dd>
 
     <dt class="col-sm-3">Description</dt>
-    <dd class="col-sm-9">Detail description</dd>
+    <dd class="col-sm-9">{{ issue.description }}</dd>
   </dl>
+
+  <p>
+    <button class="btn btn-secondary" routerLink="/issues">Back</button>
+  </p>
 </div>

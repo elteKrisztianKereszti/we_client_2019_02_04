@@ -11,7 +11,7 @@
           [class.list-group-item-warning]="issue.status === 'DOING'"
           [class.list-group-item-success]="issue.status === 'DONE'">
           <div class="d-flex w-100 justify-content-between align-items-center">
-            <h5 class="mb-1">{{ issue.title }}</h5>
+            <h5 class="mb-1" [routerLink]="['/issues', issue.id]">{{ issue.title }}</h5>
             <span class="badge" [class.badge-danger]="issue.status === 'NEW'"
               [class.badge-warning]="issue.status === 'DOING'"
               [class.badge-success]="issue.status === 'DONE'">{{ issue.status }}</span>

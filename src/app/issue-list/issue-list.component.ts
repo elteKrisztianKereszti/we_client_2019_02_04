@@ -13,6 +13,7 @@ export class IssueListComponent implements OnInit {
   private issues: Issue[] = [];
   public filteredIssues: Issue[];
   public selectedStatus: string;
+  public selectedIssue: Issue;
 
   constructor(
     private issueService: IssueService
@@ -29,7 +30,11 @@ export class IssueListComponent implements OnInit {
     this.filter();
   }
 
-  public filter(): void {
+  public onSelectIssue(issue: Issue): void {
+    this.selectedIssue = issue;
+  }
+
+  private filter(): void {
     this.filteredIssues = this.selectedStatus === ''
       ? this.issues
       : this.issues.filter(issue => issue.status === this.selectedStatus);

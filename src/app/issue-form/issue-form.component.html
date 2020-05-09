@@ -1,6 +1,6 @@
 <!-- Issue form page -->
 <div class="container">
-  <h2 class="display-2 my-3">New issue</h2>
+  <h2 class="display-2 my-3">{{ issue.id > 0 ? 'Edit' : 'New' }} issue</h2>
 
 <form>
 
@@ -11,7 +11,7 @@
       class="form-control"
       id="title"
       placeholder="Title"
-      value="Form title"
+      [value]="issue.title"
       required />
     <div class="invalid-feedback">
       Please provide a title!
@@ -24,7 +24,7 @@
       class="form-control"
       id="description"
       rows="5"
-      value="Form description"
+      [value]="issue.description"
       required></textarea>
     <div class="invalid-feedback">
       Please provide a description!
@@ -40,7 +40,7 @@
       placeholder="Place"
       required
       pattern="^PC\d+"
-      value="Form place"/>
+      [value]="issue.place"/>
     <div class="invalid-feedback">
       Please provide a place!
     </div>
@@ -48,7 +48,7 @@
   
   <div class="form-group">
     <label for="status">Status</label>
-    <select class="form-control" id="status" required>
+    <select class="form-control" id="status" required [value]="issue.status">
       <option value="NEW">New</option>
       <option value="DOING">Doing</option>
       <option value="DONE">Done</option>
@@ -61,3 +61,5 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
+
+

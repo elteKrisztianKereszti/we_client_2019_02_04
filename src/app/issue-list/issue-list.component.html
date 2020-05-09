@@ -6,7 +6,8 @@
     <div class="col">
       <status-filter [status]="selectedStatus" (filterChange)="onFilterChange($event)"></status-filter>
       <div class="list-group">
-         <a *ngFor="let issue of filteredIssues" class="list-group-item list-group-item-action"
+        <a *ngFor="let issue of filteredIssues" class="list-group-item list-group-item-action"
+          (click)="onSelectIssue(issue)"
           [class.list-group-item-danger]="issue.status === 'NEW'"
           [class.list-group-item-warning]="issue.status === 'DOING'"
           [class.list-group-item-success]="issue.status === 'DONE'">
@@ -27,6 +28,9 @@
           </small>
         </a>
       </div>
+    </div>
+    <div class="col" *ngIf="selectedIssue">
+      <app-issue-form [issue]="selectedIssue"></app-issue-form>
     </div>
   </div>
 </div>

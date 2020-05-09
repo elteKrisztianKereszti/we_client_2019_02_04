@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Issue } from '../issue';
 
 @Component({
   selector: 'app-issue-form',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./issue-form.component.css']
 })
 export class IssueFormComponent implements OnInit {
-
+  @Input() issue: Issue
+  
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

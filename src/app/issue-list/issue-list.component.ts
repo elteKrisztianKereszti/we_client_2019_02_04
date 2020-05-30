@@ -18,9 +18,10 @@ export class IssueListComponent implements OnInit {
   constructor(
     private issueService: IssueService
   ) {
-    this.issues = issueService.getIssues();
+
   }
-  public ngOnInit(): void {
+  public async ngOnInit(): Promise<void> {
+    this.issues = await this.issueService.getIssues();
     this.selectedStatus = '';
     this.filter();
   }
@@ -34,14 +35,13 @@ export class IssueListComponent implements OnInit {
     this.selectedIssue = issue;
   }
 
-
-  public onFormSubmit(formIssue: Issue): void {
-    if (this.selectedIssue.id > 0) {
-      const issue: Issue = Object.assign(this.selectedIssue, formIssue);
-      this.issueService.updateIssue(formIssue);
-    }
-    else {
-      this.issueService.createIssue(formIssue);
+  public async onFormSubmit(issue: Issue): Promise<void> {
+    if (issue.id > 0) {
+      await this.issueService.updateIssue(issue);
+      this.issues = await this.issueService.getIssues();
+    } else {
+      await this.issueService.createIssue(issue);
+      this.issues = await this.issueService.getIssues();
     }
     this.selectedIssue = null;
     this.filter();

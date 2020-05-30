@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { IssueListComponent } from '../issue-list/issue-list.component';
 import { IssueFormComponent } from '../issue-form/issue-form.component';
 import { IssueDetailComponent } from '../issue-detail/issue-detail.component';
+import { AuthGuard } from '../auth.guard';
+import { LoginFormComponent } from '../login-form/login-form.component';
 
 const routes: Routes = [
   {
@@ -17,7 +19,11 @@ const routes: Routes = [
   },
   {
     path: 'issues/new',
-    component: IssueFormComponent
+    component: IssueFormComponent,
+    canActivate: [ AuthGuard ],
+    data: {
+      roles: ['ROLE_ADMIN']
+    }
   },
   {
     path: 'issues/:id',
@@ -26,6 +32,15 @@ const routes: Routes = [
   {
     path: 'issues/:id/edit',
     component: IssueFormComponent
+  },
+  {
+    path: 'issues',
+    component: IssueListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'login',
+    component: LoginFormComponent
   },
 ];
 

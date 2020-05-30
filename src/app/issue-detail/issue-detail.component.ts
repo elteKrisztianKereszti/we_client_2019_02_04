@@ -18,9 +18,9 @@ export class IssueDetailComponent implements OnInit {
     private issueService: IssueService
   ) { }
 
-  public ngOnInit(): void {
+  public async ngOnInit(): Promise<void> {
     const id: number = +this.route.snapshot.paramMap.get('id');
-    this.issue = this.issueService.getIssue(id);
+    this.issue = await this.issueService.getIssue(id);
   }
 
   public onDeleteIssue(): void {

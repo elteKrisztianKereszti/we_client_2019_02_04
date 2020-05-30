@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RoutingModule } from './routing/routing.module';
 import { GlinkComponent } from './glink/glink.component';
 import { StatusFilterComponent } from './status-filter/status-filter.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +22,16 @@ import { StatusFilterComponent } from './status-filter/status-filter.component';
     IssueDetailComponent,
     IssueFormComponent,
     GlinkComponent,
-    StatusFilterComponent
+    StatusFilterComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
     RoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
